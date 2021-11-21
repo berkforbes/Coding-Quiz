@@ -1,19 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Javascript Quiz</title>    
-  </head>
 
-  <body>
-    <div class="header">
-      <h1>Javascript Quiz</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Javascript Quiz</title>
+</head>
+
+<!-- Header Section -->
+<body>
+  <div class="container">
+    <div class="timer">Timer:
+      <span id="timer">75</span>
     </div>
-    <button class="start-btn">Click Here To Start Quiz</button>
-	<script src="./assets/js/script.js"></script>
-  </body>
+    <h1>Javascript Quiz</h1>
+  </div>
+  <div class="instructions">
+    <p>Test your javascript knowledge with this 5 question quiz. Answer each multiple choice question as quickly as
+      possible, high scores are ranked on how quickly you complete the quiz. Questions answered incorrectly will result
+      in a 10 second penalty.
+    </p>
+  </div>
+  <!--Quiz Modal Button-->
+  <div>
+    <button id="start-btn" class="btn">Click Here To Start Quiz</button>
+    <!--High Scores Button-->
+    <button href=highscores.html id="highscores-btn" class="btn">High Scores</button>
+  </div>
+  <!-- Question 1 -->
+  <div id="quizModal" class="modal">
+    <!-- Modal content -->
+    <div class="question1">
+      <span class="close">&times;</span>
+      <p>Question 1</p>
+      <ul class="answerchoices"></ul>
+      <li>A1</li>
+      <li>A2</li>
+      <li>A3</li>
+      <li>A4</li>
+    </div>
+      <!-- Question 2 -->
+  <div id="quizModal" class="modal">
+    <!-- Modal content -->
+    <div class="question1">
+      <span class="close">&times;</span>
+      <p>Question 2</p>
+      <ul class="answerchoices"></ul>
+      <li>A1</li>
+      <li>A2</li>
+      <li>A3</li>
+      <li>A4</li>
+    </div>
+      <!-- Question 3 -->
+  <div id="quizModal" class="modal">
+    <!-- Modal content -->
+    <div class="question1">
+      <span class="close">&times;</span>
+      <p>Question 3</p>
+      <ul class="answerchoices"></ul>
+      <li>A1</li>
+      <li>A2</li>
+      <li>A3</li>
+      <li>A4</li>
+    </div>
+      <!-- Question 4 -->
+  <div id="quizModal" class="modal">
+    <!-- Modal content -->
+    <div class="question1">
+      <span class="close">&times;</span>
+      <p>Question 4</p>
+      <ul class="answerchoices"></ul>
+      <li>A1</li>
+      <li>A2</li>
+      <li>A3</li>
+      <li>A4</li>
+    </div>
+  </div>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
