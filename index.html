@@ -26,75 +26,36 @@
       <!-- quiz intro and start quiz button -->
     <div class="container jumbotron">
       <div class="row">
-        <div class="col-md-9 9col-sm-10">
+        <div class="col-md-9 col-sm-10">
           <h1 class="display-3">Javascript Quiz</h1>
-          <hr class="my-4">
+          <hr class="mt-4">
           <br>
           <p class="instructions">
             Test your javascript knowledge with this 5 question quiz. Answer each multiple choice question as quickly as possible, high scores are ranked on how quickly you complete the quiz. Questions answered incorrectly will result in a 10 second penalty.
           </p>
           <br>
-          <button type="button" class="btn btn-primary start-quiz-btn justify-content-end">Start Quiz!</button>
+          <button type="button" class="btn btn-primary start-btn justify-content-end">Start Quiz!</button>
         </div>
       </div>
     </div>
     </div>
 
-
+  <!-- Quiz Questions - empty elements for questions/answers -->
+  <div class="row quiz-questions justify-content-center">
+    <div class="col-md-8">
+      <h3 class="mb-5 question"></h3>
+      <button type="button" class="btn btn-warning answer1"></button>
+      <button type="button" class="btn btn-warning answer2"></button>
+      <button type="button" class="btn btn-warning answer3"></button>
+      <button type="button" class="btn btn-warning answer4"></button>
+  <!-- displays right or wrong depending on user choice-->
+      <span id="correct-incorrect" class="mt-5"></span>
+    </div>
+</div>
+</div>  
  
-  <!-- Question 1 -->
-  <div id="quizModal" class="modal">
-    <!-- Modal content -->
-    <div class="questions">
-      <span class="close">&times;</span>
-      <p>Where should the Javascript reference live in your HTML?</p>
-      <ul class="answer-choices"></ul>
-      <li>Just below your CSS link in the head.</li>
-      <li>Next to the div you want your function to control.</li>
-      <li>Just above the closing body tag.</li>
-      <li>Anywhere will do!</li>  
-      <button class="next-btn">Next Question</button>    
-    </div>    
-      <!-- Question 2 -->
-  <div id="quizModal" class="modal">
-    <!-- Modal content -->
-    <div class="questions">
-      <span class="close">&times;</span>
-      <p>Question 2</p>
-      <ul class="answer-choices"></ul>
-      <li>A1</li>
-      <li>A2</li>
-      <li>A3</li>
-      <li>A4</li>
-      <button class="next-btn">Next Question</button>
-    </div>    
-      <!-- Question 3 -->
-  <div id="quizModal" class="modal">
-    <!-- Modal content -->
-    <div class="questions">
-      <span class="close">&times;</span>
-      <p>Question 3</p>
-      <ul class="answer-choices"></ul>
-      <li>A1</li>
-      <li>A2</li>
-      <li>A3</li>
-      <li>A4</li>
-      <button class="next-btn">Next Question</button>
-    </div>    
-      <!-- Question 4 -->
-  <div id="quizModal" class="modal">
-    <!-- Modal content -->
-    <div class="questions">
-      <span class="close">&times;</span>
-      <p>Question 4</p>
-      <ul class="answer-choices"></ul>
-      <li>A1</li>
-      <li>A2</li>
-      <li>A3</li>
-      <li>A4</li>
-      <button class="next-btn">Next Question</button>
-    </div>      
-  </div>
+  
+  
   <script src="./assets/js/script.js"></script>
 </body>
 

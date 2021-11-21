@@ -1,20 +1,29 @@
-let startBtn = document.getElementById('start-btn')
-let highScoresBtn = document.querySelector('#highscores-btn')
-let quizModal = document.getElementById('quizModal')
-let exit = document.getElementsByClassName('#close')[0];
+//DOM references
+var startBtn = document.querySelector(".start-btn");
+var timer = document.querySelector("#timer");
+var question = document.querySelector(".question");
+var answer1 = document.querySelector(".answer1");
+var answer2 = document.querySelector(".answer2");
+var answer3 = document.querySelector(".answer3");
+var answer4 = document.querySelector(".answer4");
+var questionSection = document.querySelector(".quiz-questions");
+var individualResult = document.querySelector("#correct-incorrect");
 
+//Question array
+var question1 = "Question1"
+var question2 = "Question2"
+var question3 = "Question3"
+var question4 = "Question4"
+var question5 = "Question5"
+var questionsArray = [question1, question2, question3, question4, question5]
 
-// add high scores URL to activate high score button click highScoresBtn.addEventListener("click", location."highscores.html" )
+//Start timer, hide instructions and show first question
+startQuizBtn.addEventListener("click", startTimer)
+  
+startQuizBtn.addEventListener("click", function(){
+  document.querySelector(".jumbotron").style.display = "none";
+  questionSection.style.display = "block";
+})
 
-// Start button click to open quiz modal
-startBtn.onclick = function() {
-  quizModal.style.display = "block";
-}
-
-// X click will close quiz modal
-exit.onclick = function() {
-  quizModal.style.display = "none";
-}
-
-
+startBtn.addEventListener("click", nextQuestion) 
 
