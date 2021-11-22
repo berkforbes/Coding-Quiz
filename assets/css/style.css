@@ -20,12 +20,12 @@ body {
 }
 
 /* Instructions Jumbotron */
-.jumbotron {
+.about {
   margin-top: 15px;
   background-color: transparent;
 }
 
-.jumbotron h1 {
+.about h1 {
   font-size: 80px;
 }
 
@@ -66,4 +66,30 @@ h1 {
 
 .quiz {
   display: none;
+}
+
+/* Username Section */
+
+
+.username-section {
+  display: none;
+}
+
+#input:focus {
+  border: none!important;
+}
+
+.margin {
+  margin: 100px 30px;
+
+}
+
+/* Highscore Section */
+.highscores-section {
+  display: none;
+}
+
+
+.highscore-btn{
+  display: inline!important;
 }

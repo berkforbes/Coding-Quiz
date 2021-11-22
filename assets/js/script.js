@@ -49,7 +49,7 @@ var question4Answer = {
 var question5Answer = {
   content1: "1",
   content2: "2",
-  content3: "3)",
+  content3: "3",
   content4: "4"
 }
 //Answers array
@@ -64,14 +64,32 @@ var correctAnswer5 = question5Answer.content4;
 var allCorrectAnswers = [correctAnswer1, correctAnswer2, correctAnswer3, correctAnswer4, correctAnswer5]
 
 //Start timer, hide instructions and show first question
-startQuizBtn.addEventListener("click", startTimer)
+startBtn.addEventListener("click", startTimer)
   
-startQuizBtn.addEventListener("click", function(){
-  document.querySelector(".jumbotron").style.display = "none";
+startBtn.addEventListener("click", function(){
+  document.querySelector(".about").style.display = "none";
   questionSection.style.display = "block";
 })
 
 startBtn.addEventListener("click", nextQuestion) 
+
+  //Start Timer 
+    var secondsLeft = 75;
+    var timerInterval;
+    function startTimer(){
+      timerInterval = setInterval(function() {
+        secondsLeft --;
+        timer.textContent =  "Time: " + secondsLeft + " seconds";
+        
+  //Display Username Page when user runs out of time
+    if (secondsLeft === 0) {
+          clearInterval(timerInterval);
+          quizSection.style.display = "none";
+          usernameSection.style.display = "inline";
+          }
+        }, 1000);
+    return timerInterval;
+    } 
 
 var correctIndex = 0;
   
@@ -82,11 +100,11 @@ var correctIndex = 0;
         setTimeout(function(){questionSection.style.display = "none";
         highscoreSection.style.display = "inline";
     }, 500);
-        //Stop Timer
+    //Stop Timer
         setTimeout(function(){clearInterval(timerInterval)}, 500);
-    //if questions remain then display next question
+    //If questions remain then display next question
     } else {
-        question.textContent = questionsArray[correctIndex];
+        question.textContent = allQuestions[correctIndex];
         answer1.textContent = answersArray[correctIndex].content1;
         answer2.textContent = answersArray[correctIndex].content2;
         answer3.textContent = answersArray[correctIndex].content3;
