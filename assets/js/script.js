@@ -7,8 +7,10 @@ var answer2 = document.querySelector(".answer2");
 var answer3 = document.querySelector(".answer3");
 var answer4 = document.querySelector(".answer4");
 var questionSection = document.querySelector(".quiz-questions");
-var individualResult = document.querySelector("#correct-incorrect");
-var highscoreSection = document.querySelector(".highscore-section");
+var userAnswer = document.querySelector("#correct-incorrect");
+var highscoreSection = document.querySelector(".highscores-section");
+var usernameSection = document.querySelector(".username-section");
+var submitUsernameButton = document.querySelector(".submit-btn");
 
 //Question array
 var question1 = "Question1"
@@ -65,50 +67,101 @@ var allCorrectAnswers = [correctAnswer1, correctAnswer2, correctAnswer3, correct
 
 //Start timer, hide instructions and show first question
 startBtn.addEventListener("click", startTimer)
-  
-startBtn.addEventListener("click", function(){
+
+startBtn.addEventListener("click", function () {
   document.querySelector(".about").style.display = "none";
   questionSection.style.display = "block";
 })
 
-startBtn.addEventListener("click", nextQuestion) 
+startBtn.addEventListener("click", nextQuestion)
 
-  //Start Timer 
-    var secondsLeft = 75;
-    var timerInterval;
-    function startTimer(){
-      timerInterval = setInterval(function() {
-        secondsLeft --;
-        timer.textContent =  "Time: " + secondsLeft + " seconds";
-        
-  //Display Username Page when user runs out of time
+//Start Timer 
+var secondsLeft = 75;
+var timerInterval;
+function startTimer() {
+  timerInterval = setInterval(function () {
+    secondsLeft--;
+    timer.textContent = "Time: " + secondsLeft + " seconds";
+
+    //Display Username Page when user runs out of time
     if (secondsLeft === 0) {
-          clearInterval(timerInterval);
-          quizSection.style.display = "none";
-          usernameSection.style.display = "inline";
-          }
-        }, 1000);
-    return timerInterval;
-    } 
+      clearInterval(timerInterval);
+      quizSection.style.display = "none";
+      usernameSection.style.display = "inline";
+    }
+  }, 1000);
+  return timerInterval;
+}
 
 var correctIndex = 0;
-  
-    //Next Question function
-    function nextQuestion(){
-    //Open section to log high score if all q's have been answered
-    if (correctIndex === allQuestions.length - 1) {
-        setTimeout(function(){questionSection.style.display = "none";
-        highscoreSection.style.display = "inline";
+
+
+//Did the user answer correctly?
+questionSection.addEventListener("click", correctOrIncorrect)
+function correctOrIncorrect(event){
+  if(event.target.matches(".btn-warning")){
+      var chosenAnswer = event.target.textContent;
+      userAnswer.textContent = " ";
+      userAnswer.style.display = "block";
+          if (chosenAnswer === allCorrectAnswers[correctIndex]){
+              userAnswer.textContent = "That's Right!";
+              setTimeout(function(){ userAnswer.style.display = "none"}, 500);
+          } else {
+              userAnswer.textContent = "Not Quite"
+              setTimeout(function(){ userAnswer.style.display = "none"}, 500);
+              secondsLeft -= 10;
+              timer.textContent =  "Time: " + secondsLeft + " seconds";
+          }
+          correctIndex++;
+  }
+  return secondsLeft;
+};
+
+//Next Question After User Selection
+questionSection.addEventListener("click", function(event){
+  if(event.target.matches(".btn-warning")){
+      nextQuestion();
+  }})
+
+//Next Question function
+function nextQuestion() {
+  //Open section to log high score if all q's have been answered
+  if (correctIndex === allQuestions.length - 1) {
+    setTimeout(function () {
+      questionSection.style.display = "none";
+      usernameSection.style.display = "inline";
     }, 500);
     //Stop Timer
-        setTimeout(function(){clearInterval(timerInterval)}, 500);
+    setTimeout(function () { clearInterval(timerInterval) }, 500);
     //If questions remain then display next question
-    } else {
-        question.textContent = allQuestions[correctIndex];
-        answer1.textContent = answersArray[correctIndex].content1;
-        answer2.textContent = answersArray[correctIndex].content2;
-        answer3.textContent = answersArray[correctIndex].content3;
-        answer4.textContent = answersArray[correctIndex].content4;
-    }
-    }
+  } else {
+    question.textContent = allQuestions[correctIndex];
+    answer1.textContent = answersArray[correctIndex].content1;
+    answer2.textContent = answersArray[correctIndex].content2;
+    answer3.textContent = answersArray[correctIndex].content3;
+    answer4.textContent = answersArray[correctIndex].content4;
+  }
+}
 
+//Record username and save in local storage
+function usernameInput() {
+  var userInitial = document.querySelector(".username").value;
+  if (userInitial === "") {
+      userInitial = "anonymous";
+  } 
+      localStorage.setItem(userInitial, secondsLeft);
+      document.querySelector(".user-scores").textContent = " ";
+      var p = document.createElement("p");
+      p.textContent = userInitial + ": " + secondsLeft;
+      document.querySelector(".user-scores").appendChild(p);    
+  
+}
+
+//Submit username and show score 
+submitUsernameButton.addEventListener("click", function(event){
+  event.preventDefault();
+      usernameInput();        
+      usernameSection.style.display = "none";
+      document.querySelector(".highscores-section").style.display = "block";
+      document.querySelector(".user-scores").style.display = "block";
+})

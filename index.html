@@ -7,23 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="Assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <!-- Header -->
+
 <body>
-    <!-- Links to Highscores and Timer display -->
-    <div class="row header">
-      <div class="col">
-        <div>
-          <span id="highscore">Highscores</span>
-          <span id="timer">Time Remaining: 75 seconds</span>
-        </div>
+  <!-- Links to Highscores and Timer display -->
+  <div class="row header">
+    <div class="col">
+      <div>
+        <span id="highscore">Highscores</span>
+        <span id="timer">Time Remaining: 75 seconds</span>
       </div>
     </div>
-    <div class="container">
-      <!-- quiz intro and start quiz button -->
+  </div>
+  <div class="container">
+    <!-- quiz intro and start quiz button -->
     <div class="container about">
       <div class="row">
         <div class="col-md-9 col-sm-10">
@@ -31,14 +32,16 @@
           <hr class="mt-4">
           <br>
           <p class="instructions">
-            Test your javascript knowledge with this 5 question quiz. Answer each multiple choice question as quickly as possible, high scores are ranked on how quickly you complete the quiz. Questions answered incorrectly will result in a 10 second penalty.
+            Test your javascript knowledge with this 5 question quiz. Answer each multiple choice question as quickly as
+            possible, high scores are ranked on how quickly you complete the quiz. Questions answered incorrectly will
+            result in a 10 second penalty.
           </p>
           <br>
           <button type="button" class="btn btn-primary start-btn justify-content-end">Start Quiz!</button>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
   <!-- Quiz Questions - empty elements for questions/answers -->
   <div class="row quiz-questions justify-content-center">
@@ -48,19 +51,19 @@
       <button type="button" class="btn btn-warning answer2"></button>
       <button type="button" class="btn btn-warning answer3"></button>
       <button type="button" class="btn btn-warning answer4"></button>
-  <!-- displays right or wrong depending on user choice-->
+      <!-- displays right or wrong depending on user choice-->
       <span id="correct-incorrect" class="mt-5"></span>
     </div>
-</div>
-</div>  
+  </div>
+  </div>
 
   <!-- Log Username for Highscore -->
   <div class="username-section">
     <div class="row margin justify-content-center">
       <div class="col-md-6">
-        <h3>All done!</h3>
-        <p>Enter your name below:</p>
-        <input type="text" class="mt-3" id="input" name="initials" placeholder="initials"><br>
+        <h3>Nice Work!</h3>
+        <p>Enter your username below:</p>
+        <input type="text" class="mt-3 username" id="input" name="username" placeholder="Username"><br>
         <button type="submit" class="btn btn-warning submit-btn">Submit</button>
       </div>
     </div>
@@ -70,18 +73,17 @@
   <div class="container highscores-section">
     <div class="row margin justify-content-center">
       <div class="highscores-div col-md-8">
-        <h3>Highscores</h3>
-        <p>click on View Highscores on the top left of page to view all previous history</p>
+        <h3>Highscores</h3>        
         <div class="user-scores mt-5">
         </div>
-        <button type="button" class="btn btn-warning highscore-btn challenge-again">Challenge Again</button>
+        <button type="button" class="btn btn-warning highscore-btn challenge-again">Try Again</button>
         <button type="button" class="btn btn-warning highscore-btn clear-highscores ml-3">Clear Highscores</button>
       </div>
     </div>
   </div>
- 
-  
-  
+
+
+
   <script src="./assets/js/script.js"></script>
 </body>
 
