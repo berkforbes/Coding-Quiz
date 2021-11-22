@@ -14,46 +14,46 @@ var submitUsernameButton = document.querySelector(".submit-btn");
 var highScoreLink = document.querySelector("#highscore");
 
 //Question array
-var question1 = "Question1"
-var question2 = "Question2"
-var question3 = "Question3"
-var question4 = "Question4"
-var question5 = "Question5"
+var question1 = "Where within the HTML should your Javascript reference be placed?"
+var question2 = "Which of these is not a data type in Javascript?"
+var question3 = "When you assign a variable to document.queryselector('selector') you..."
+var question4 = "An if/else conditional statement is enclosed with ____"
+var question5 = "An array can be used to store what type of data?"
 var allQuestions = [question1, question2, question3, question4, question5]
 
 //Answer Objects
 var question1Answer = {
-  content1: "1",
-  content2: "2",
-  content3: "3",
-  content4: "4"
+  content1: "Anywhere you'd like",
+  content2: "Just above the CSS reference in the <head>",
+  content3: "At the bottom of the page just above the closing </body> element", //
+  content4: "This is not necessary as HTML is automatically linked to Javascript"
 }
 var question2Answer = {
-  content1: "1",
-  content2: "2",
-  content3: "3",
-  content4: "4"
+  content1: "Boolean",
+  content2: "Variable", //
+  content3: "Null",
+  content4: "String"
 }
 
 var question3Answer = {
-  content1: "1",
-  content2: "2",
-  content3: "3",
-  content4: "4"
+  content1: "Assign the variable to the referenced HTML selector with the DOM", //
+  content2: "Give that element a new selector to use in CSS",
+  content3: "Tell the DOM to delete that selector when the variable is called in a function",
+  content4: "Make that variable a clickable link"
 }
 
 var question4Answer = {
-  content1: "1",
-  content2: "2",
-  content3: "3",
-  content4: "4"
+  content1: "Forward slashes",
+  content2: "Curly Brackets", //
+  content3: "Asterisks",
+  content4: "Parentheses"
 }
 
 var question5Answer = {
-  content1: "1",
-  content2: "2",
-  content3: "3",
-  content4: "4"
+  content1: "Booleans",
+  content2: "Strings",
+  content3: "Other Arrays",
+  content4: "All Of The Above" //
 }
 //Answers array
 var answersArray = [question1Answer, question2Answer, question3Answer, question4Answer, question5Answer]
@@ -99,30 +99,31 @@ var correctIndex = 0;
 
 //Did the user answer correctly?
 questionSection.addEventListener("click", correctOrIncorrect)
-function correctOrIncorrect(event){
-  if(event.target.matches(".btn-warning")){
-      var chosenAnswer = event.target.textContent;
-      userAnswer.textContent = " ";
-      userAnswer.style.display = "block";
-          if (chosenAnswer === allCorrectAnswers[correctIndex]){
-              userAnswer.textContent = "That's Right!";
-              setTimeout(function(){ userAnswer.style.display = "none"}, 500);
-          } else {
-              userAnswer.textContent = "Not Quite"
-              setTimeout(function(){ userAnswer.style.display = "none"}, 500);
-              secondsLeft -= 10;
-              timer.textContent =  "Time: " + secondsLeft + " seconds";
-          }
-          correctIndex++;
+function correctOrIncorrect(event) {
+  if (event.target.matches(".btn-warning")) {
+    var chosenAnswer = event.target.textContent;
+    userAnswer.textContent = " ";
+    userAnswer.style.display = "block";
+    if (chosenAnswer === allCorrectAnswers[correctIndex]) {
+      userAnswer.textContent = "That's Right!";
+      setTimeout(function () { userAnswer.style.display = "none" }, 750);
+    } else {
+      userAnswer.textContent = "Not Quite"
+      setTimeout(function () { userAnswer.style.display = "none" }, 750);
+      secondsLeft -= 10;
+      timer.textContent = "Time: " + secondsLeft + " seconds";
+    }
+    correctIndex++;
   }
   return secondsLeft;
 };
 
 //Next Question After User Selection
-questionSection.addEventListener("click", function(event){
-  if(event.target.matches(".btn-warning")){
-      nextQuestion();
-  }})
+questionSection.addEventListener("click", function (event) {
+  if (event.target.matches(".btn-warning")) {
+    nextQuestion();
+  }
+})
 
 //Next Question function
 function nextQuestion() {
@@ -132,7 +133,7 @@ function nextQuestion() {
       questionSection.style.display = "none";
       usernameSection.style.display = "inline";
     }, 500);
-    //Stop Timer
+    //Stop Timer if all questions answered
     setTimeout(function () { clearInterval(timerInterval) }, 500);
     //If questions remain then display next question
   } else {
@@ -148,46 +149,46 @@ function nextQuestion() {
 function usernameInput() {
   var userInitial = document.querySelector(".username").value;
   if (userInitial === "") {
-      userInitial = "anonymous";
-  } 
-      localStorage.setItem(userInitial, secondsLeft);
-      document.querySelector(".user-scores").textContent = " ";
-      var p = document.createElement("p");
-      p.textContent = userInitial + ": " + secondsLeft;
-      document.querySelector(".user-scores").appendChild(p);    
-  
+    userInitial = "anonymous";
+  }
+  localStorage.setItem(userInitial, secondsLeft);
+  document.querySelector(".user-scores").textContent = " ";
+  var p = document.createElement("p");
+  p.textContent = userInitial + ": " + secondsLeft;
+  document.querySelector(".user-scores").appendChild(p);
+
 }
 
 //Submit username and show score 
-submitUsernameButton.addEventListener("click", function(event){
+submitUsernameButton.addEventListener("click", function (event) {
   event.preventDefault();
-      usernameInput();        
-      usernameSection.style.display = "none";
-      document.querySelector(".highscores-section").style.display = "block";
-      document.querySelector(".user-scores").style.display = "block";
+  usernameInput();
+  usernameSection.style.display = "none";
+  document.querySelector(".highscores-section").style.display = "block";
+  document.querySelector(".user-scores").style.display = "block";
 })
 
 //Try Again
-document.querySelector(".try-again").addEventListener("click", function(){  
-  correctIndex = 0;  
+document.querySelector(".try-again").addEventListener("click", function () {
+  correctIndex = 0;
   secondsLeft = 50;
-  timer.textContent =  "Time: 50 seconds";  
-  document.querySelector(".about").style.display = "block";  
+  timer.textContent = "Time: 50 seconds";
+  document.querySelector(".about").style.display = "block";
   highscoreSection.style.display = "none";
 })
 
 //Clear Highscores
-document.querySelector(".clear-highscores").addEventListener("click", function(){
+document.querySelector(".clear-highscores").addEventListener("click", function () {
   localStorage.clear();
   document.querySelector(".user-scores").textContent = " ";
-  document.querySelector(".user-scores").style.display = "none";  
+  document.querySelector(".user-scores").style.display = "none";
 });
 
 //Highscore link
-highScoreLink.addEventListener("click", function(){
+highScoreLink.addEventListener("click", function () {
   //stop timer if selected
   clearInterval(timerInterval);
-  //hide all other pages and show highscore panel
+  //Display only highscore section if link is clicked
   document.querySelector(".about").style.display = "none";
   questionSection.style.display = "none";
   usernameSection.style.display = "none";

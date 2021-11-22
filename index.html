@@ -45,13 +45,13 @@
 
   <!-- Quiz Questions - empty elements for questions/answers -->
   <div class="row quiz-questions justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-8 ml-5">
       <h3 class="mb-5 question"></h3>
       <button type="button" class="btn btn-warning answer1"></button>
       <button type="button" class="btn btn-warning answer2"></button>
       <button type="button" class="btn btn-warning answer3"></button>
       <button type="button" class="btn btn-warning answer4"></button>
-      <!-- displays right or wrong depending on user choice-->
+      <!-- Tell user if answer was correct-->
       <span id="correct-incorrect" class="mt-5"></span>
     </div>
   </div>
@@ -69,11 +69,11 @@
     </div>
   </div>
 
-  <!-- User Score and Highscore Section: shows user initial and score for current quiz, shows highscore history if user clicked View Highscores -->
+  <!-- Display user score and buttons to try quiz again or clear highscores -->
   <div class="container highscores-section">
     <div class="row margin justify-content-center">
-      <div class="highscores-div col-md-8">
-        <h3>Highscores</h3>        
+      <div class="highscores-div col-md-8 border border-dark rounded ">
+        <h3>Highscores</h3>
         <div class="user-scores mt-5">
         </div>
         <button type="button" class="btn btn-warning highscore-btn try-again">Try Again</button>
