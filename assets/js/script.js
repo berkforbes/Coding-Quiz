@@ -11,6 +11,7 @@ var userAnswer = document.querySelector("#correct-incorrect");
 var highscoreSection = document.querySelector(".highscores-section");
 var usernameSection = document.querySelector(".username-section");
 var submitUsernameButton = document.querySelector(".submit-btn");
+var highScoreLink = document.querySelector("#highscore");
 
 //Question array
 var question1 = "Question1"
@@ -76,7 +77,7 @@ startBtn.addEventListener("click", function () {
 startBtn.addEventListener("click", nextQuestion)
 
 //Start Timer 
-var secondsLeft = 75;
+var secondsLeft = 50;
 var timerInterval;
 function startTimer() {
   timerInterval = setInterval(function () {
@@ -164,4 +165,31 @@ submitUsernameButton.addEventListener("click", function(event){
       usernameSection.style.display = "none";
       document.querySelector(".highscores-section").style.display = "block";
       document.querySelector(".user-scores").style.display = "block";
+})
+
+//Try Again
+document.querySelector(".try-again").addEventListener("click", function(){  
+  correctIndex = 0;  
+  secondsLeft = 50;
+  timer.textContent =  "Time: 50 seconds";  
+  document.querySelector(".about").style.display = "block";  
+  highscoreSection.style.display = "none";
+})
+
+//Clear Highscores
+document.querySelector(".clear-highscores").addEventListener("click", function(){
+  localStorage.clear();
+  document.querySelector(".user-scores").textContent = " ";
+  document.querySelector(".user-scores").style.display = "none";  
+});
+
+//Highscore link
+highScoreLink.addEventListener("click", function(){
+  //stop timer if selected
+  clearInterval(timerInterval);
+  //hide all other pages and show highscore panel
+  document.querySelector(".about").style.display = "none";
+  questionSection.style.display = "none";
+  usernameSection.style.display = "none";
+  highscoreSection.style.display = "block";
 })

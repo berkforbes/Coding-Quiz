@@ -87,6 +87,8 @@ h1 {
 /* Highscore Section */
 .highscores-section {
   display: none;
+  border:black 3px;
+  font-size: 15px;
 }
 
 
